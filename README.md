@@ -15,3 +15,12 @@ WHERE {
   ?object <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> ?title
 } LIMIT 100
 ```
+toevoegen van de beschrijving in de [query](http://query.linkeddatafragments.org/#datasources=https%3A%2F%2Fstad.gent%2Fsparql&query=SELECT%20%3Ftitle%20%20%3Fbeschrijving%20FROM%20%3Chttp%3A%2F%2Fstad.gent%2Fldes%2Fdmg%3E%20%0AWHERE%20%7B%20%0A%20%20%3Fobject%20%3Chttp%3A%2F%2Fwww.cidoc-crm.org%2Fcidoc-crm%2FP102_has_title%3E%20%3Ftitle.%0A%20%20%3Fobject%20%3Chttp%3A%2F%2Fwww.cidoc-crm.org%2Fcidoc-crm%2FP3_has_note%3E%20%3Fbeschrijving%0A%7D%20LIMIT%20100); 
+
+```sparql
+SELECT ?title  ?maker FROM <http://stad.gent/ldes/dmg> 
+WHERE { 
+  ?object <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> ?title
+  ?object <http://www.cidoc-crm.org/cidoc-crm/P108i_was_produced_by> ?maker
+} LIMIT 100
+```
