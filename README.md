@@ -38,3 +38,15 @@ WHERE {
   ?object <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> ?beschrijving
 } LIMIT 100
 ```
+
+### werken met DISTINCT 
+Door gebruik te maken van DISTINCT na SELECT deze query heeft enkel resultaten met unieke titels en beschrijving terug. Op deze manier kunnen we het ophalen van meerdere versies van 1 object vermijden. 
+
+```sparql 
+SELECT DISTINCT ?title ?beschrijving FROM <http://stad.gent/ldes/dmg> 
+WHERE { 
+  ?object <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> ?title.
+  ?object <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> ?beschrijving.
+  ?object <http://www.cidoc-crm.org/cidoc-crm/P45_consists_of>  <http://vocab.getty.edu/aat/300014570>.
+} LIMIT 100
+```
