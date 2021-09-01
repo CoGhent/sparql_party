@@ -102,6 +102,24 @@ SELECT ?maker WHERE {
 LIMIT 100
 ```
 
+```sparql
+PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX aat: <http://vocab.getty.edu/aat/>
+PREFIX gvp: <http://vocab.getty.edu/ontology#>
+PREFIX xl: <http://langegger.at/xlwrap/vocab#>
+PREFIX spif: <http://spinrdf.org/spif#>
+PREFIX uniprot: <http:xx//purl.uniprot.org/uniprot/>
+
+select distinct ?l from <http://stad.gent/ldes/dmg>
+where {
+	?object cidoc:P102_has_title ?title.
+  	?object cidoc:P45_consists_of ?m.
+  	filter(regex(str(?m), "aat")).
+  	bind (substr(str(?m), 28, 40) as ?aat_id). #fetch aat id 
+} 
+```
+
 ### todo 
 - alle objecten met een vrouwelijke maker 
 - alle objecten gerelateerd aan Gent 
