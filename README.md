@@ -45,7 +45,7 @@ WHERE {
 ```
 
 ### werken met DISTINCT 
-Door gebruik te maken van DISTINCT na SELECT [deze](https://bit.ly/3t4Wsja) query heeft enkel resultaten met unieke titels en beschrijving terug. Op deze manier kunnen we het ophalen van meerdere versies van 1 object vermijden. 
+Door gebruik te maken van DISTINCT na SELECT [deze](https://bit.ly/3BAVFcX) query heeft enkel resultaten met unieke titels en beschrijving terug. Op deze manier kunnen we het ophalen van meerdere versies van 1 object vermijden. 
 
 ```sparql 
 PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/>
