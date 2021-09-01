@@ -1,3 +1,3 @@
-# Sparql endpoint  
+# SPARQL party  
 
 
