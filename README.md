@@ -70,8 +70,23 @@ WHERE {
 } LIMIT 100
 ```
 ### 2. Queries over verschillende collecties heen
-### 3. Queries over verschillende datasets heen (extern)
+door het toevoegen van meerdere bronnen via de FROM statement kan een query opgesteld worden die over de verschillende collecties heen zoekt. 
 
+### 3. Queries over verschillende datasets heen (extern)
+```sparql 
+PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/>
+SELECT DISTINCT ?title ?beschrijving 
+FROM <http://stad.gent/ldes/dmg> 
+FROM <http://stad.gent/ldes/hva> 
+FROM <http://stad.gent/ldes/stam> 
+FROM <http://stad.gent/ldes/archief> 
+FROM <http://stad.gent/ldes/im> 
+WHERE { 
+  ?object cidoc:P102_has_title ?title.
+  FILTER (regex(?title, "NOVA", "i")).
+  ?object cidoc:P3_has_note ?beschrijving.
+} LIMIT 100
+```
 
 ### todo 
 - alle objecten met een vrouwelijke maker 
