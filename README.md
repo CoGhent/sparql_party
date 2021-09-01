@@ -6,6 +6,18 @@ SPARQL is de standaard query taal en protocol voor het bevragen en consulteren v
 
 In het kader van deze demo wordt gebruik gemaakt van de [Communica Web Client](http://query.linkeddatafragments.org/). Communica is een knowledge graph querying framework.
 
+## bronnen
+
+| instelling   |      dcat      |
+|----------|:-------------:|
+| personen en instellingen (alle instellingen) |  http://stad.gent/ldes/personen | 
+| thesaurus (alle instellingen)| http://stad.gent/ldes/thesaurus | 
+| industriemuseum |    http://stad.gent/ldes/industriemuseum   | 
+| archief gent| http://stad.gent/ldes/archief |  
+| design museum gent| http://stad.gent/ldes/dmg |   
+| huis van alijn| http://stad.gent/ldes/hva |  
+| STAM| http://stad.gent/ldes/stam |  
+
 ## SPARQL Recipes
 
 ### basis query (opvragen van titels)
