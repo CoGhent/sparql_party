@@ -70,7 +70,7 @@ WHERE {
 } LIMIT 100
 ```
 
-op dezelfde manier kunnen we ook een lijst opvragen met allev voorkomende vervaardigers gekoppeld aan objecten waarbij "NOVA" voortkomt in de titel.
+op dezelfde manier kunnen we ook een lijst opvragen met alle voorkomende vervaardigers gekoppeld aan objecten waarbij "NOVA" voortkomt in de titel aan de hand van de volgende [query](shorturl.at/zCLTW);
 
 ```sparql
 PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/>
