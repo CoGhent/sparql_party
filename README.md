@@ -68,3 +68,12 @@ WHERE {
   ?object cidoc:P3_has_note ?beschrijving.
 } LIMIT 100
 ```
+
+### todo 
+- alle objecten met een vrouwelijke maker 
+- alle objecten gerelateerd aan Gent 
+- alle objecten gemaakt tijdens WOI
+
+### enkele web interfaces:
+- plotten van objecten op een kaart
+- alle "portretten" van makers uit de collectie (via Wikimedia)
