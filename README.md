@@ -1,4 +1,4 @@
-# SPARQL party  
+# SPARQL demo  
 
 ## Wat is SPARQL? 
 
