@@ -92,6 +92,7 @@ where {
 ```
 
 #### werken met GRAPH
+aan de hand van GRAPH (?g) is het ook mogelijk om de naam van de geraadpleegde graph mee op te vragen. 
 
 ```sparql
 PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/>
