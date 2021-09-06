@@ -18,6 +18,11 @@ In het kader van deze demo wordt gebruik gemaakt van de [Communica Web Client](h
 | huis van alijn| http://stad.gent/ldes/hva |  
 | STAM| http://stad.gent/ldes/stam |  
 
+### datasources
+sparql@http://vocab.getty.edu/sparql.json
+https://stad.gent/sparql
+
+
 ## SPARQL Recipes
 ### 1. Queries over 1 collectie
 
