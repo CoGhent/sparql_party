@@ -91,6 +91,32 @@ where {
 }
 ```
 
+#### werken met GRAPH
+
+```sparql
+PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+select distinct ?g ?maker ?title ?desc from <http://stad.gent/ldes/dmg>
+where {
+  ?object cidoc:P102_has_title ?title.
+  FILTER (regex(?title, "NOVA", "i"))
+  	{?object cidoc:P108i_was_produced_by ?p.
+  	?p cidoc:P14_carried_out_by ?m.
+    ?m rdfs:label ?maker
+    FILTER (regex(?maker, "Riche, Roger", "i"))
+  	?object cidoc:P3_has_note ?desc.}
+    UNION 
+    {GRAPH ?g {?object cidoc:P108i_was_produced_by ?p.
+  	?p cidoc:P14_carried_out_by ?m.
+    ?m rdfs:label ?maker.
+        FILTER (regex(?maker, "Calor", "i"))
+    ?object cidoc:P3_has_note ?desc.
+      }
+ }
+}
+```
+
 ### 2. Queries over verschillende collecties heen
 door het toevoegen van meerdere bronnen via de FROM statement kan een query opgesteld worden die over de verschillende collecties heen zoekt. 
 
