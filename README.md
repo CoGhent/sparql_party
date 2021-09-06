@@ -19,8 +19,8 @@ In het kader van deze demo wordt gebruik gemaakt van de [Communica Web Client](h
 | STAM| http://stad.gent/ldes/stam |  
 
 ### datasources
-sparql@http://vocab.getty.edu/sparql.json
-https://stad.gent/sparql
+- sparql@http://vocab.getty.edu/sparql.json
+- https://stad.gent/sparql
 
 
 ## SPARQL Recipes
