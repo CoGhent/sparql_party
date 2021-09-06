@@ -97,8 +97,9 @@ where {
 PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-select distinct ?g ?maker ?title ?desc from <http://stad.gent/ldes/dmg>
-where {
+SELECT DISTINCT ?g ?maker ?title ?desc 
+FROM <http://stad.gent/ldes/dmg>
+WHERE {
   ?object cidoc:P102_has_title ?title.
   FILTER (regex(?title, "NOVA", "i"))
   	{?object cidoc:P108i_was_produced_by ?p.
@@ -143,8 +144,9 @@ PREFIX xl: <http://langegger.at/xlwrap/vocab#>
 PREFIX spif: <http://spinrdf.org/spif#>
 PREFIX uniprot: <http:xx//purl.uniprot.org/uniprot/>
 
-select distinct ?l from <http://stad.gent/ldes/dmg>
-where {
+SELECT DISTINCT ?l 
+FROM <http://stad.gent/ldes/dmg>
+WHERE {
 	?object cidoc:P102_has_title ?title.
   	?object cidoc:P45_consists_of ?m.
   	filter(regex(str(?m), "aat")).
