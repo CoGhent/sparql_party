@@ -103,15 +103,16 @@ where {
   FILTER (regex(?title, "NOVA", "i"))
   	{?object cidoc:P108i_was_produced_by ?p.
   	?p cidoc:P14_carried_out_by ?m.
-    ?m rdfs:label ?maker
-    FILTER (regex(?maker, "Riche, Roger", "i"))
+	?m rdfs:label ?maker
+    	FILTER (regex(?maker, "Riche, Roger", "i"))
   	?object cidoc:P3_has_note ?desc.}
     UNION 
-    {GRAPH ?g {?object cidoc:P108i_was_produced_by ?p.
+    	{GRAPH ?g 
+	{?object cidoc:P108i_was_produced_by ?p.
   	?p cidoc:P14_carried_out_by ?m.
-    ?m rdfs:label ?maker.
+    	?m rdfs:label ?maker.
         FILTER (regex(?maker, "Calor", "i"))
-    ?object cidoc:P3_has_note ?desc.
+    	?object cidoc:P3_has_note ?desc.
       }
  }
 }
