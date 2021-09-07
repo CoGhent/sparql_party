@@ -127,7 +127,9 @@ WHERE {
 ### 2. Queries over verschillende collecties heen
 door het toevoegen van meerdere bronnen via de FROM statement kan een query opgesteld worden die over de verschillende collecties heen zoekt. 
 
-### 3. Queries over verschillende datasets heen (extern)
+### 3. Queries over verschillende datasets heen (Federated Queries)
+Federated Queries zijn bevragingen van meerdere datasets in dezelfde vraag. 
+- SERVICE: aan de hand van SERVICE is het mogelijk om eenm subquery in een andere query te plaatsen. Om twee verschillende datasets te raadplegen is het nodig om elke query in een eigen subquery te plaatsen. 
 
 ```sparql 
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
