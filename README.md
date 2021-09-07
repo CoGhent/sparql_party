@@ -4,7 +4,7 @@
 
 SPARQL is de standaard query taal en protocol voor het bevragen en consulteren van [Linked Open Data](https://www.w3.org/egov/wiki/Linked_Open_Data) (LOD) op het web of voor het raadplegen van [RDF](https://www.w3.org/RDF/) triplestores. 
 
-In het kader van deze demo wordt gebruik gemaakt van de [Communica Web Client](http://query.linkeddatafragments.org/). Communica is een knowledge graph querying framework.
+In het kader van deze demo wordt gebruik gemaakt van de [Communica Web Client](http://query.linkeddatafragments.org/). Communica is een knowledge graph querying framework. 
 
 ## bronnen
 
@@ -160,6 +160,6 @@ WHERE {
 - alle objecten gerelateerd aan Gent 
 - alle objecten gemaakt tijdens WOI
 
-### enkele web interfaces:
+### enkele web interfaces (codePen):
 - plotten van objecten op een kaart
 - alle "portretten" van makers uit de collectie (via Wikimedia)
