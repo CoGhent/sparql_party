@@ -6,6 +6,30 @@ SPARQL is de standaard query taal en protocol voor het bevragen en consulteren v
 
 In het kader van deze demo wordt gebruik gemaakt van de [Communica Web Client](http://query.linkeddatafragments.org/). Communica is een knowledge graph querying framework. 
 
+### structuur van een SPARQL query
+een SPARQL query is opgebouwd uit de volgende onderdelen in volgorde: 
+- prefix declaratie: voor het afkorten van URIs
+- dataset definitie: bepalen welke RDF graphs bevraagd worden.  
+- result: bepaald welke informatie uit de query moet resulteren
+- query patroon: bepaald wat er precies moet gequeried worden in de de dataset 
+- query modificatoren: het herstructureren van de resultaten (groeperen, sorteren, ...)
+
+```sparql
+# prefix declaratie
+PREFIX foo: <http://example.com/resources/>
+...
+# dataset definitie
+FROM ...
+# result clause
+SELECT ...
+# query patroon
+WHERE {
+    ...
+}
+# query modificatoren
+ORDER BY ...
+```
+
 ## bronnen
 
 | instelling   |      dcat      |
