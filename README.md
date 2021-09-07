@@ -1,4 +1,5 @@
 # SPARQL demo  
+---
 
 ## Wat is SPARQL? 
 
@@ -46,16 +47,17 @@ ORDER BY ...
 - sparql@http://vocab.getty.edu/sparql.json
 - https://stad.gent/sparql
 
+---
 
 ## SPARQL Recipes
 ### 1. Queries over 1 collectie
 
 #### basis query (opvragen van titels)
 deze [SPARQL query](http://query.linkeddatafragments.org/#datasources=https%3A%2F%2Fstad.gent%2Fsparql&query=PREFIX%20cidoc%3A%20%3Chttp%3A%2F%2Fwww.cidoc-crm.org%2Fcidoc-crm%2F%3E%0ASELECT%20%3Ftitle%20FROM%20%3Chttp%3A%2F%2Fstad.gent%2Fldes%2Fdmg%3E%20%0AWHERE%20%7B%20%0A%20%20%3Fobject%20cidoc%3AP102_has_title%20%3Ftitle%0A%7D%20LIMIT%20100) vraagt 100 titels op van objecten uit de LDES van het Design Museum Gent. 
-- PREFIX: aanduiden van de namespace waartoe een term behoort. Zo wordt cidoc de namespace "http://www.cidoc-crm.org/cidoc-crm/" toegekend met prefix dc. dc:title verwijst zo naar de term "title" in de Dublin Core namespace. Door gebruikt te maken van namespaces worden queries leesbaarder doordat niet steeds verwezen moet worden naar de URI.
-- SELECT: aan de hand van SELECT gevolgd door ?term kan bepaald worden welke waarden uit de opgevraagde querie moeten worden meegegeven als resultaat. In onderstaand voorbeeld worden titels opgevraagd, in dit geval toegewezen aan ?title.
-- FROM: via FROM is het mogelijk om te speciferen welke dataset in de GRAPH bevraagt dient te worden. In dit geval wordt gefocused op de dataset van het Dseign Museum Gent <http://stad.gent/ldes/dmg>. 
-- WHERE: 
+- *PREFIX*: aanduiden van de namespace waartoe een term behoort. Zo wordt cidoc de namespace "http://www.cidoc-crm.org/cidoc-crm/" toegekend met prefix dc. dc:title verwijst zo naar de term "title" in de Dublin Core namespace. Door gebruikt te maken van namespaces worden queries leesbaarder doordat niet steeds verwezen moet worden naar de URI.
+- *SELECT*: aan de hand van SELECT gevolgd door ?term kan bepaald worden welke waarden uit de opgevraagde querie moeten worden meegegeven als resultaat. In onderstaand voorbeeld worden titels opgevraagd, in dit geval toegewezen aan ?title.
+- *FROM*: via FROM is het mogelijk om te speciferen welke dataset in de GRAPH bevraagt dient te worden. In dit geval wordt gefocused op de dataset van het Dseign Museum Gent <http://stad.gent/ldes/dmg>. 
+- *WHERE*: 
 
 ```sparql
 PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/>
@@ -74,6 +76,7 @@ WHERE {
   ?object cidoc:P108i_was_produced_by ?maker
 } LIMIT 100
 ```
+---
 
 #### werken met FILTER + REGEX
 FILTER kan gebruikt worden voor het filteren in de opgevraagde resultaten. 
@@ -89,6 +92,7 @@ WHERE {
   ?object cidoc:P3_has_note ?beschrijving
 } LIMIT 100
 ```
+---
 
 #### werken met DISTINCT 
 Door gebruik te maken van DISTINCT na SELECT [deze](https://bit.ly/3BAVFcX) query heeft enkel resultaten met unieke titels en beschrijving terug. Op deze manier kunnen we het ophalen van meerdere versies van 1 object vermijden. 
@@ -118,6 +122,7 @@ where {
   	?m rdfs:label ?maker
 }
 ```
+---
 
 #### werken met GRAPH
 aan de hand van GRAPH (?g) is het ook mogelijk om de naam van de geraadpleegde graph mee op te vragen. 
@@ -147,9 +152,11 @@ WHERE {
  }
 }
 ```
+---
 
 ### 2. Queries over verschillende collecties heen
 door het toevoegen van meerdere bronnen via de FROM statement kan een query opgesteld worden die over de verschillende collecties heen zoekt. 
+---
 
 ### 3. Queries over verschillende datasets heen (Federated Queries)
 Federated Queries zijn bevragingen van meerdere datasets in dezelfde vraag. 
@@ -184,6 +191,7 @@ WHERE {
   	bind (substr(str(?m), 28, 40) as ?aat_id). #fetch aat id 
 } 
 ```
+---
 
 ### todo 
 - alle objecten met een vrouwelijke maker 
