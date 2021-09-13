@@ -173,7 +173,7 @@ PREFIX aat: <http://vocab.getty.edu/aat/>
 
 SELECT distinct ?collectie ?typeCollectie ?label ?note ?value
 WHERE { 
-  <https://stad.gent/id/mensgemaaktobject/industriemuseum/570061698/2021-09-11T02:33:59.240Z> cidoc:P46i_forms_part_of ?collectie .
+  <https://stad.gent/data/mensgemaaktobject/dmg/530026035/2021-09-08T15:22:08.551Z> cidoc:P46i_forms_part_of ?collectie .
   ?collectie cidoc:P2_has_type ?typeCollectie .
   ?typeCollectie rdfs:label ?label .
   OPTIONAL {
