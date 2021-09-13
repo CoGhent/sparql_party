@@ -165,33 +165,25 @@ Federated Queries zijn bevragingen van meerdere datasets in dezelfde vraag.
 - SERVICE: aan de hand van SERVICE is het mogelijk om eenm subquery in een andere query te plaatsen. Om twee verschillende datasets te raadplegen is het nodig om elke query in een eigen subquery te plaatsen. 
 
 ```sparql 
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX wd: <http://www.wikidata.org/entity/>
-
-SELECT ?maker WHERE {
-  ?maker wdt:P6379 wd:Q1809071;
-         wdt:P27 wd:Q31; 
-         }
-LIMIT 100
-```
-
-```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX aat: <http://vocab.getty.edu/aat/>
-PREFIX gvp: <http://vocab.getty.edu/ontology#>
-PREFIX xl: <http://langegger.at/xlwrap/vocab#>
-PREFIX spif: <http://spinrdf.org/spif#>
-PREFIX uniprot: <http:xx//purl.uniprot.org/uniprot/>
 
-SELECT DISTINCT ?l 
-FROM <http://stad.gent/ldes/dmg>
-WHERE {
-	?object cidoc:P102_has_title ?title.
-  	?object cidoc:P45_consists_of ?m.
-  	filter(regex(str(?m), "aat")).
-  	bind (substr(str(?m), 28, 40) as ?aat_id). #fetch aat id 
+SELECT distinct ?collectie ?typeCollectie ?label ?note ?value
+WHERE { 
+  <https://stad.gent/id/mensgemaaktobject/industriemuseum/570061698/2021-09-11T02:33:59.240Z> cidoc:P46i_forms_part_of ?collectie .
+  ?collectie cidoc:P2_has_type ?typeCollectie .
+  ?typeCollectie rdfs:label ?label .
+  OPTIONAL {
+     ?typeCollectie skos:scopeNote ?note . 
+     ?note rdf:value ?value .
+  }
+  
+  FILTER ( lang(?label) = 'en-us' && lang(?value) = 'en' )
 } 
+
 ```
 ---
 
