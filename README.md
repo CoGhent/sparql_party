@@ -172,17 +172,22 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX aat: <http://vocab.getty.edu/aat/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
-SELECT *
+SELECT ?t ?v ?v2
 WHERE { 
   <https://stad.gent/id/mensgemaaktobject/dmg/530027447/2021-09-08T15:38:19.392Z> cidoc:P46i_forms_part_of ?collectie.
   ?collectie cidoc:P2_has_type ?typeCollectie.
   BIND (URI(REPLACE(str(?typeCollectie), "page/", "")) AS ?t).
   optional {
-    ?t skos:scopeNote ?note. 
-    ?note rdf:value ?value.
-  
-  #FILTER (lang(?value) = 'nl')
+    ?t skos:note ?nlAbstract.
+    ?nlAbstract rdf:value ?v
+    FILTER (lang(?v) = "nl")
   }
+  optional {
+    ?t skos:note ?enAbstract.
+    ?enAbstract rdf:value ?v2
+    FILTER (lang(?v2) = "en")
+  }
+ 
 } 
 
 ```
