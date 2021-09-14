@@ -170,18 +170,19 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX aat: <http://vocab.getty.edu/aat/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
 
-SELECT distinct ?collectie ?typeCollectie ?label ?note ?value
+SELECT *
 WHERE { 
-  <https://stad.gent/data/mensgemaaktobject/dmg/530026035/2021-09-08T15:22:08.551Z> cidoc:P46i_forms_part_of ?collectie .
-  ?collectie cidoc:P2_has_type ?typeCollectie .
-  ?typeCollectie rdfs:label ?label .
-  OPTIONAL {
-     ?typeCollectie skos:scopeNote ?note . 
-     ?note rdf:value ?value .
-  }
+  <https://stad.gent/id/mensgemaaktobject/dmg/530027447/2021-09-08T15:38:19.392Z> cidoc:P46i_forms_part_of ?collectie.
+  ?collectie cidoc:P2_has_type ?typeCollectie.
+  BIND (URI(REPLACE(str(?typeCollectie), "page/", "")) AS ?t).
+  optional {
+    ?t skos:scopeNote ?note. 
+    ?note rdf:value ?value.
   
-  FILTER ( lang(?label) = 'en-us' && lang(?value) = 'en' )
+  #FILTER (lang(?value) = 'nl')
+  }
 } 
 
 ```
