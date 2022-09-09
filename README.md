@@ -74,8 +74,8 @@ toevoegen van de beschrijving in de query;
 PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/>
 SELECT ?title  ?maker FROM <http://stad.gent/ldes/dmg> 
 WHERE { 
-  ?object cidoc:P102_has_title ?title
-  ?object cidoc:P108i_was_produced_by ?maker
+  ?object cidoc:P102_has_title ?title.
+  ?object cidoc:P108i_was_produced_by ?maker.
 } LIMIT 100
 ```
 ---
